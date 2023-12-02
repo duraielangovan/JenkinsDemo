@@ -5,16 +5,15 @@ echo 'Stating the test'
 pipeline
 {
  agent any
-  tools{
-        maven 'Maven'
-    } 
+
+
  stages
  {
    stage('build')
    {
      steps 
      {
-     	echo 'Branch name is'+ env.BRANCH_NAME
+     	echo "Build number ${env.BUILD_ID} is running  on ${env.JENKINS_URL}"
      }     
    }
    
@@ -22,26 +21,25 @@ pipeline
    {
     when{
         
-        expression{
+        expression
+        {
             
-            env.BRANCH_NAME = 'dev'
+            params.TEST_ENV = 'qa'
         }
-
-
     }
 
  //Steps will be executed only when the expression is true   
      steps 
      {
-     	echo 'test phase for master branch'  	
+     	echo "Test phase for the environment : ${params.TEST_ENV}"  	
      }     
    }
    
-   stage('deploy')
+   stage('Deploy')
    {
      steps 
      {
-     	bat 'mvn clean package'
+     	echo "Status of current build is ${currentBuild.result}"
      }     
    }  
    

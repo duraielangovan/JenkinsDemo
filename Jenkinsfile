@@ -24,7 +24,7 @@ pipeline
         expression
         {
             
-            params.TEST_ENV = 'qa'
+            params.TEST_ENV !='qa'
         }
     }
 

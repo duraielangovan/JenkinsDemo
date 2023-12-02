@@ -4,7 +4,10 @@ echo 'Stating the test'
 
 pipeline
 {
- agent any
+ agent 
+ 	{
+    	label 'linux'    
+	}
  
  stages
  {
@@ -28,7 +31,7 @@ pipeline
 
     }
 
- //Steps will be eecuted only when the expression is true   
+ //Steps will be executed only when the expression is true   
      steps 
      {
      	echo 'test phase for master branch'  	
@@ -39,7 +42,7 @@ pipeline
    {
      steps 
      {
-     	sh 'make publish'
+     	sh 'printenv'
      }     
    }  
    

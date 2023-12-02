@@ -4,11 +4,10 @@ echo 'Stating the test'
 
 pipeline
 {
- agent 
- 	{
-    	label 'linux'    
-	}
- 
+ agent any
+  tools{
+        maven 'Maven'
+    } 
  stages
  {
    stage('build')
@@ -42,7 +41,7 @@ pipeline
    {
      steps 
      {
-     	sh 'printenv'
+     	bat 'mvn clean package'
      }     
    }  
    

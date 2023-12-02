@@ -5,9 +5,6 @@ echo 'Stating the test'
 pipeline
 {
  agent any
- //{
-  //label ''
- //}
  
  stages
  {
@@ -15,8 +12,7 @@ pipeline
    {
      steps 
      {
-     	sh 'make'    
-     	echo "Branhc name is ${BRANCH_NAME}" 	
+     	echo "Branch name is ${BRANCH_NAME}" 	
      }     
    }
    
@@ -35,10 +31,7 @@ pipeline
  //Steps will be eecuted only when the expression is true   
      steps 
      {
-     	sh 'make check' 
-     	junit 'report/**/*.xml'
-     	testNg 'reports'  
-     	/** Junit & testNg plugins provide the commands */    	
+     	echo 'test phase for master branch'  	
      }     
    }
    

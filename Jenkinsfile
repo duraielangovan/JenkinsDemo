@@ -28,8 +28,7 @@ pipeline
         }
     }
 
- //Steps will be executed only when the expression is true   
-     steps 
+    steps 
      {
      	echo "Test phase for the environment : ${params.TEST_ENV}"  	
      }     

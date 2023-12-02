@@ -12,7 +12,7 @@ pipeline
    {
      steps 
      {
-     	echo "Branch name is ${BRANCH_NAME}" 	
+     	echo "Branch name is ${env.BRANCH_NAME}" 	
      }     
    }
    
@@ -22,7 +22,7 @@ pipeline
         
         expression{
             
-            BRANCH_NAME = 'dev'
+            env.BRANCH_NAME = 'dev'
         }
 
 
